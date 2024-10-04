@@ -42,7 +42,7 @@ body {
 /* Estilos dos botões */
 .buttons {
     display: flex;
-    flex-direction: row;
+    flex-direction: row; /* Mantém os botões lado a lado */
     justify-content: center;
     align-items: center;
     margin: 20px 0;
@@ -55,7 +55,7 @@ body {
     text-align: center;
     display: inline-block;
     font-size: 16px;
-    margin: 4px 2px;
+    margin: 4px 10px; /* Aumenta a margem horizontal */
     cursor: pointer;
     border: none;
     border-radius: 12px;
@@ -92,11 +92,20 @@ img {
     }
 
     .buttons {
-        flex-direction: column;
+        flex-direction: row; /* Garante que os botões fiquem lado a lado */
+        flex-wrap: wrap; /* Permite que os botões se ajustem se a tela for muito pequena */
+        justify-content: center;
+    }
+
+    .btn {
+        padding: 10px 20px; /* Reduz o padding para melhor adaptação */
+        margin: 5px; /* Ajusta a margem para espaçamento adequado */
+        font-size: 14px; /* Reduz o tamanho da fonte */
     }
 
     #noButton,
     #yesButton {
-        margin: 10px 0;
+        /* Remove margens específicas se necessário */
+        margin: 5px;
     }
 }
