@@ -1,59 +1,51 @@
+/* Estilos gerais do corpo */
 body {
-    
     height: 90vh;
     background-color: #F8C8DC;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
+/* Ocultar a seção de resposta inicialmente */
 #ans {
     display: none;
 }
 
-#ansvideo{
-    visibility: hidden;
+/* Ocultar os vídeos */
+#ansvideo,
+#novideo {
+    display: none;
 }
 
-#novideo{
-    visibility: hidden;
-}
-
-#noButton {
-    position: absolute;
-    margin-left: 150px;
+/* Estilos dos botões "No" e "Yes" */
+#noButton,
+#yesButton {
+    position: relative;
+    margin: 10px;
     transition: 0.5s;
 }
 
-#yesButton {
-    position: absolute;
-    margin-right: 150px;
-}
-
+/* Estilos do texto de cabeçalho */
 .header_text {
-    font-family: 'Nunito';
+    font-family: 'Nunito', sans-serif;
     font-size: 50px;
     font-weight: bold;
     color: black;
     text-align: center;
-    margin-top: 20px;
-    margin-bottom: 0px;
+    margin: 20px 0 10px 0;
 }
 
-.text {
-    font-family: 'Nunito';
-    font-size: 25px;
-    font-weight: bold;
-    color: white;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 0px;
-}
-
+/* Estilos dos botões */
 .buttons {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
-    margin-left: 20px;
+    margin: 20px 0;
 }
 
 .btn {
@@ -71,42 +63,40 @@ body {
 }
 
 .btn:hover {
-    background-color:  #ff8e9f;
+    background-color: #ff8e9f;
 }
 
+/* Container das imagens GIF */
 .gif_container {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 20px 0;
 }
 
-.qrimage{
-    display: block;
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 350px;
-  height: auto;
-}
-
-img
-{
+/* Estilos das imagens */
+img {
     max-width: 100%;
     height: auto;
     cursor: pointer;
 }
 
+/* Media Queries para dispositivos móveis */
 @media only screen and (max-width: 600px) {
-    .header_text{
-        color: black;
+    .header_text {
         font-size: 40px;
     }
-    .qrimage{
-        max-width: 50%;
-        padding-left: 25%;
+
+    .gif_container {
+        margin: 10px 0;
     }
-    .gif_container{
-        margin-left:0;
-        height: auto;
-        width: auto;
+
+    .buttons {
+        flex-direction: column;
     }
-  }
+
+    #noButton,
+    #yesButton {
+        margin: 10px 0;
+    }
+}
