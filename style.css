@@ -1,6 +1,6 @@
 /* Estilos gerais do corpo */
 body {
-    height: 90vh;
+    min-height: 100vh; /* Ajustado para garantir que ocupe toda a altura */
     background-color: #F8C8DC;
     margin: 0;
     padding: 0;
@@ -15,13 +15,12 @@ body {
     display: none;
 }
 
-/* Ocultar os vídeos */
-#ansvideo,
-#novideo {
+/* Ocultar os elementos de áudio (se usar <audio>) */
+#audioElements {
     display: none;
 }
 
-/* Estilos dos botões "No" e "Yes" */
+/* Estilos dos botões "Não" e "Sim" */
 #noButton,
 #yesButton {
     position: relative;
@@ -92,7 +91,7 @@ img {
     }
 
     .buttons {
-        flex-direction: row; /* Garante que os botões fiquem lado a lado */
+        flex-direction: row; /* Mantém os botões lado a lado */
         flex-wrap: wrap; /* Permite que os botões se ajustem se a tela for muito pequena */
         justify-content: center;
     }
@@ -105,7 +104,6 @@ img {
 
     #noButton,
     #yesButton {
-        /* Remove margens específicas se necessário */
         margin: 5px;
     }
 }
