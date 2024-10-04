@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en-IN" dir="ltr">
+<html lang="pt-BR" dir="ltr">
   <head>
     <title>Aceita?</title>
     <meta charset="utf-8">
     <meta name="author" content="SidPro"/>
     <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-    <meta name="description" content="Do you wanna go out with me? A website to invite your lover for a date by Collegeek online learning platform."/>
-    <meta name="keywords" content="Do you wanna go out with me,A website to invite your lover for a date,Collegeek,Collegeek.com,learning programing,programming tutorial,tools,Live_DHTML,Convertor,microprocessor"/>
+    <meta name="description" content="Do you wanna go out with me? Um site para convidar seu amor para um encontro pela plataforma de aprendizado online Collegeek."/>
+    <meta name="keywords" content="Do you wanna go out with me,A website to invite your lover for a date,Collegeek,Collegeek.com,learning programming,programming tutorial,tools,Live_DHTML,Converter,microprocessor"/>
     <link rel="stylesheet" href="./style.css">
     <!-- icons -->
     <link rel="apple-touch-icon" sizes="57x57" href="image/icons/favicon-57x57.png">
@@ -47,14 +47,16 @@
             <h1 class="header_text">Aceita sair comigo?</h1>
         </div>
         <div class="gif_container">
-            <img src="image/ask.gif" alt="Cute animated illustration">
+            <img src="image/ask.gif" alt="Ilustração animada fofa">
         </div>
         <div class="buttons">
             <button class="btn" id="yesButton" onclick="nextPage()">Sim</button>
             <button class="btn" id="noButton" onmouseover="moveButton()" onclick="moveButton()">Não</button>
         </div>
-        <video id="novideo" width="0" height="0" controls>
+        <!-- Elementos de vídeo ocultos -->
+        <video id="novideo" controls>
             <source src="image/SadMoment.mp4" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
         </video>
     </div>
     <div id="ans" class="container">
@@ -62,11 +64,19 @@
             <h1 class="header_text">Yeeeyyyy!!</h1>
         </div>
         <div class="gif_container">
-            <img src="image/ans.gif" alt="Cute animated illustration">
+            <img src="image/ans.gif" alt="Ilustração animada fofa">
         </div>
+        <video id="ansvideo" controls>
+            <source src="image/KidsCheering.mp4" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
     </div>
   </body> 
   <script>
+    // Inicializa o contador para o vídeo "Não"
+    let noButtonPlayCount = 0;
+    const maxPlays = 2; // Número máximo de reproduções permitidas
+
     var debounce = function(fn, t = 1000) {
         let timer;
         return function(...args) {
@@ -76,13 +86,29 @@
     };
 
     function playAudio() {
-        document.getElementById('novideo').play();
+        if (noButtonPlayCount < maxPlays) {
+            const noVideo = document.getElementById('novideo');
+            noVideo.currentTime = 0; // Reinicia o vídeo para que ele possa ser reproduzido novamente
+            noVideo.play();
+            noButtonPlayCount++;
+        } else {
+            console.log("Limite de reprodução do vídeo 'Não' atingido.");
+            // Opcional: Altere o comportamento do botão "Não" após atingir o limite
+            // Por exemplo, desabilite o botão ou altere seu texto
+            const noButton = document.getElementById('noButton');
+            noButton.disabled = true;
+            noButton.style.cursor = 'default';
+            noButton.style.opacity = '0.6'; // Indica que o botão está desabilitado
+            // Você também pode alterar o texto do botão
+            // noButton.textContent = "Não mais";
+        }
     }
 
     function nextPage() {
         document.getElementById('ans').style.display = 'block';
         document.getElementById('ask').style.display = 'none';
         document.getElementById('novideo').pause();
+        document.getElementById('ansvideo').play();
     }
 
     function moveButton() {
