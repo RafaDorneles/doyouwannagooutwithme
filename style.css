@@ -1,7 +1,7 @@
 /* Estilos gerais do corpo */
 body {
     min-height: 100vh; /* Ajustado para garantir que ocupe toda a altura */
-    background-color: #F8C8DC;
+    background-color: #ffffff;
     margin: 0;
     padding: 0;
     display: flex;
@@ -26,6 +26,7 @@ body {
     position: relative;
     margin: 10px;
     transition: 0.5s;
+    border: 2px solid #000000;
 }
 
 /* Estilos do texto de cabeçalho */
@@ -48,8 +49,8 @@ body {
 }
 
 .btn {
-    background-color: #FFB6C1;
-    color: white;
+    background-color: #ffffff;
+    color: black;
     padding: 15px 32px;
     text-align: center;
     display: inline-block;
@@ -62,7 +63,7 @@ body {
 }
 
 .btn:hover {
-    background-color: #ff8e9f;
+    background-color: #ffffff;
 }
 
 /* Container das imagens GIF */
@@ -88,6 +89,7 @@ img {
 
     .gif_container {
         margin: 10px 0;
+        margin-top: -50px; 
     }
 
     .buttons {
